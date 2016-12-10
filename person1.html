@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+<title>Person1</title>
+</head>
+<body>
+<h1>Person1</h1>
+<div class="chat-history">
+</div>
+<input type="text" placeholder="say something" name="chat-text" onkeyup="sendchat(this.value)" />
+</body>
+<script>
+	function sendchat(text) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', 'http://localhost:3000/chat', true);
+		xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+		xhr.send('chat=' + text);
+	}
+</script>
+</html>
